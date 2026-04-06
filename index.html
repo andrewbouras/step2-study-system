@@ -10,6 +10,31 @@
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<!-- Product Schema (JSON-LD) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "Step 2 & COMLEX Level 2 Study System — Notion Template",
+  "description": "Your entire board prep in one Notion workspace. 8 databases, 55 high-yield facts, 35 OMM topics, 6-week study schedule, QBank tracker, and test day checklist. Built by a DO student.",
+  "brand": { "@type": "Brand", "name": "Andrew Bouras" },
+  "offers": {
+    "@type": "Offer",
+    "url": "https://andrewbouras.github.io/step2-study-system/",
+    "priceCurrency": "USD",
+    "price": "15.00",
+    "availability": "https://schema.org/PreOrder",
+    "priceValidUntil": "2026-12-31"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "5",
+    "reviewCount": "1"
+  }
+}
+</script>
+
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:'Inter',system-ui,sans-serif;color:#1a1a2e;line-height:1.6;background:#fff}
@@ -22,6 +47,17 @@ body{font-family:'Inter',system-ui,sans-serif;color:#1a1a2e;line-height:1.6;back
 .hero .cta-btn{display:inline-block;background:#fff;color:#0d5e3a;font-size:18px;font-weight:700;padding:16px 40px;border-radius:10px;text-decoration:none;transition:transform .15s,box-shadow .15s}
 .hero .cta-btn:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(0,0,0,.2)}
 .hero .price{margin-top:16px;font-size:14px;opacity:.8}
+
+/* Launch Pricing Banner */
+.launch-banner{background:linear-gradient(90deg,#fef3c7,#fde68a);padding:14px 0;text-align:center;display:none}
+.launch-banner p{font-size:15px;font-weight:600;color:#92400e}
+.launch-banner span{font-weight:800}
+
+/* Bundle Cross-Link Banner */
+.bundle-banner{background:linear-gradient(135deg,#f5f3ff,#ede9fe);border-bottom:2px solid #7c3aed;padding:14px 0;text-align:center}
+.bundle-banner a{color:#4f46e5;font-weight:700;text-decoration:none;font-size:15px}
+.bundle-banner a:hover{text-decoration:underline}
+.bundle-banner .save-tag{background:#7c3aed;color:#fff;font-size:12px;font-weight:700;padding:3px 8px;border-radius:4px;margin-left:8px}
 
 .email-capture{background:#f0fdf4;border-top:3px solid #16a34a;border-bottom:3px solid #16a34a;padding:32px 0;text-align:center}
 .email-capture h2{font-size:22px;font-weight:800;color:#1a1a2e;margin-bottom:6px}
@@ -122,8 +158,22 @@ footer a{color:#16a34a}
     <div class="badge">🧠 BUILT BY A DO STUDENT IN DEDICATED</div>
     <h1>Stop Studying in Chaos.<br>Start Studying with a System.</h1>
     <p class="subtitle">The Step 2 & COMLEX Level 2 Study System organizes your QBanks, practice exams, weak areas, and study schedule in one Notion workspace. Pre-filled with 55 clinical facts and 35 OMM topics.</p>
-    <a href="#get-notified" class="cta-btn">Get the Template -- $15</a>
+    <a href="#get-notified" class="cta-btn" data-cta>Get the Template -- $15</a>
     <p class="price">Pay what you want (minimum $12) -- 30-day money-back guarantee</p>
+  </div>
+</section>
+
+<!-- Launch pricing banner — only visible when STORE_CONFIG.live is true -->
+<section class="launch-banner" id="launchBanner">
+  <div class="container">
+    <p>🔥 Launch pricing: <span>$15</span> (regular $20 after launch week)</p>
+  </div>
+</section>
+
+<!-- Bundle cross-link banner -->
+<section class="bundle-banner">
+  <div class="container">
+    <a href="https://andrewbouras.github.io/med-school-bundle/">Get all 3 templates — Rotations + Step 2 + Residency <span class="save-tag">SAVE $10</span></a>
   </div>
 </section>
 
@@ -143,10 +193,10 @@ footer a{color:#16a34a}
 <section class="proof">
   <div class="container">
     <div class="proof-items">
+      <div class="proof-item"><strong>200+</strong>Hours of Board Prep</div>
+      <div class="proof-item"><strong>179</strong>Pre-Loaded Entries</div>
       <div class="proof-item"><strong>8</strong>Interconnected Databases</div>
-      <div class="proof-item"><strong>55</strong>High-Yield Facts</div>
-      <div class="proof-item"><strong>35</strong>OMM Topics</div>
-      <div class="proof-item"><strong>42</strong>Day Study Schedule</div>
+      <div class="proof-item"><strong>DO & MD</strong>Student Ready</div>
     </div>
   </div>
 </section>
@@ -288,7 +338,7 @@ footer a{color:#16a34a}
   <div class="container">
     <h2>Your Board Prep Deserves a System</h2>
     <p>You've got 3,000+ questions to do. Stop tracking them in your head.</p>
-    <a href="#get-notified" class="cta-btn">Get Early Access -- $15</a>
+    <a href="#get-notified" class="cta-btn" data-cta>Get Early Access -- $15</a>
     <p class="guarantee">30-day money-back guarantee -- Pay what you want (min $12) -- Instant access at launch</p>
   </div>
 </section>
@@ -324,7 +374,7 @@ footer a{color:#16a34a}
 </section>
 
 <div class="sticky-cta">
-  <a href="#get-notified">Get Early Access -- $15</a>
+  <a href="#get-notified" data-cta>Get Early Access -- $15</a>
 </div>
 
 <footer>
@@ -335,6 +385,35 @@ footer a{color:#16a34a}
 </footer>
 
 <script>
+// ============================================================
+// STORE CONFIG — Change 'live' to true and paste your URL
+// to instantly convert all CTAs from waitlist → buy buttons.
+// ============================================================
+const STORE_CONFIG = {
+  // CHANGE THIS ONE LINE when store goes live:
+  live: false,
+  buyUrl: '',      // Paste Payhip/Gumroad URL here
+  bundleUrl: '',   // Bundle URL (if different)
+};
+
+// --- Payment-ready CTA system ---
+(function() {
+  if (STORE_CONFIG.live && STORE_CONFIG.buyUrl) {
+    // Convert all CTA buttons to direct purchase links
+    document.querySelectorAll('[data-cta]').forEach(function(btn) {
+      btn.href = STORE_CONFIG.buyUrl;
+      btn.textContent = btn.textContent.replace('Get Early Access', 'Get It Now').replace('Get the Template', 'Get It Now');
+      btn.removeAttribute('data-cta');
+    });
+    // Show launch pricing banner
+    var banner = document.getElementById('launchBanner');
+    if (banner) banner.style.display = 'block';
+    // Hide the email capture section
+    var emailSection = document.getElementById('get-notified');
+    if (emailSection) emailSection.style.display = 'none';
+  }
+})();
+
 function handleSubmit(e) {
   e.preventDefault();
   var email = document.getElementById('waitlistEmail').value.trim();
